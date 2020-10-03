@@ -16,8 +16,8 @@ Python 3.0 or later
 Python Libraries:
  * PIL
  * Tkinter
- * numpy
  * cv2
+ * numpy
 ```
 
 ## Face Extraction & Face Detection:
