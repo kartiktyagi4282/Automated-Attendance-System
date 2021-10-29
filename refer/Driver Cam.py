@@ -59,21 +59,6 @@ def web():
    capture.release()
    cv2.destroyAllWindows()
 
-def webrec():
-   capture =cv2.VideoCapture(0)
-   fourcc=cv2.VideoWriter_fourcc(*'XVID') 
-   op=cv2.VideoWriter('Sample1.avi',fourcc,11.0,(640,480))
-   while True:
-      ret,frame=capture.read()
-      gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-      cv2.imshow('frame',frame)
-      op.write(frame)
-      if cv2.waitKey(1) & 0xFF ==ord('q'):
-         break
-   op.release()
-   capture.release()
-   cv2.destroyAllWindows()   
-
 def webdet():
    capture =cv2.VideoCapture(0)
    face_cascade = cv2.CascadeClassifier('lbpcascade_frontalface.xml')
@@ -136,14 +121,29 @@ def webdetRec():
    op.release()      
    capture.release()
    cv2.destroyAllWindows()
-
    
 def alert():
+   print('Alert the sound by opening beep-07.wav sound');
    mixer.init()
    alert=mixer.Sound('beep-07.wav')
    alert.play()
    time.sleep(0.1)
-   alert.play()   
+   alert.play()      
+
+def webrec():
+   capture =cv2.VideoCapture(0)
+   fourcc=cv2.VideoWriter_fourcc(*'XVID') 
+   op=cv2.VideoWriter('Sample1.avi',fourcc,11.0,(640,480))
+   while True:
+      ret,frame=capture.read()
+      gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+      cv2.imshow('frame',frame)
+      op.write(frame)
+      if cv2.waitKey(1) & 0xFF ==ord('q'):
+         break
+   op.release()
+   capture.release()
+   cv2.destroyAllWindows()     
    
 def blink():
    capture =cv2.VideoCapture(0)
@@ -174,7 +174,6 @@ def blink():
       cv2.imshow('frame',frame)
       if cv2.waitKey(1) & 0xFF ==ord('q'):
           break
-         
   
    capture.release()
    cv2.destroyAllWindows()
